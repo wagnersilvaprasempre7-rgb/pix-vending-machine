@@ -1,22 +1,35 @@
 const produtos = {
   1: { porta: 1, nome: "Salgadinho", valor: 6.80 },
-  2: { porta: 2, nome: "amendoin crocante", valor: 7.00 },
+  2: { porta: 2, nome: "Amendoim Crocante", valor: 7.00 },
   3: { porta: 3, nome: "Chocolate", valor: 5.00 },
   4: { porta: 4, nome: "Biscoito", valor: 4.00 },
   5: { porta: 5, nome: "Snack", valor: 6.00 },
   6: { porta: 6, nome: "Castanha-do-Brasil", valor: 8.00 },
   7: { porta: 7, nome: "Batata", valor: 15.00 },
-  8: { porta: 8, nome: "amendoin,batata", valor: 6.00 },
-  9: { porta: 9, nome: "Lembranças da regiao", valor: 35.00 },
-  10: { porta: 10, nome: "Produto Regional", valor: 8.00 }
-};
+  8: { porta: 8, nome: "Amendoim Batata", valor: 6.00 },
+  9: { porta: 9, nome: "Lembranças da Região", valor: 35.00 },
+  10: { porta: 10, nome: "Produto Regional", valor: 8.00 },
 
-for (let i = 11; i <= 30; i++) {
-  produtos[i] = {
-    porta: i,
-    nome: `Produto Porta ${i}`,
-    valor: 5.00
-  };
-}
+  11: { porta: 11, nome: "Produto Porta 11", valor: 5.00 },
+  12: { porta: 12, nome: "Produto Porta 12", valor: 5.00 },
+  13: { porta: 13, nome: "Produto Porta 13", valor: 5.00 },
+  14: { porta: 14, nome: "Produto Porta 14", valor: 5.00 },
+  15: { porta: 15, nome: "Produto Porta 15", valor: 5.00 },
+  16: { porta: 16, nome: "Produto Porta 16", valor: 5.00 },
+  17: { porta: 17, nome: "Produto Porta 17", valor: 5.00 },
+  18: { porta: 18, nome: "Produto Porta 18", valor: 5.00 },
+  19: { porta: 19, nome: "Produto Porta 19", valor: 5.00 },
+  20: { porta: 20, nome: "Produto Porta 20", valor: 5.00 },
+  21: { porta: 21, nome: "Produto Porta 21", valor: 5.00 },
+  22: { porta: 22, nome: "Produto Porta 22", valor: 5.00 },
+  23: { porta: 23, nome: "Produto Porta 23", valor: 5.00 },
+  24: { porta: 24, nome: "Produto Porta 24", valor: 5.00 },
+  25: { porta: 25, nome: "Produto Porta 25", valor: 5.00 },
+  26: { porta: 26, nome: "Produto Porta 26", valor: 5.00 },
+  27: { porta: 27, nome: "Produto Porta 27", valor: 5.00 },
+  28: { porta: 28, nome: "Produto Porta 28", valor: 5.00 },
+  29: { porta: 29, nome: "Produto Porta 29", valor: 5.00 },
+  30: { porta: 30, nome: "Produto Porta 30", valor: 5.00 }
+};
 
 module.exports = produtos;
