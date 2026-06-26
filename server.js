@@ -158,7 +158,95 @@ app.get("/liberar/:porta", (req, res) => {
 
   res.send(`Porta ${porta} liberada manualmente`);
 });
+app.get("/qrcodes", async (req, res) => {
 
+    let html = `
+    <html>
+    <head>
+    <title>QR Codes VENDIBOX</title>
+
+    <style>
+
+    body{
+        background:#08131f;
+        color:white;
+        font-family:Arial;
+        padding:20px;
+    }
+
+    h1{
+        text-align:center;
+        color:#00d9ff;
+    }
+
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+        gap:20px;
+    }
+
+    .card{
+        background:#0f1c2d;
+        border:1px solid #00d9ff;
+        border-radius:15px;
+        padding:20px;
+        text-align:center;
+    }
+
+    img{
+        width:180px;
+        background:white;
+        padding:10px;
+        border-radius:10px;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <h1>VENDIBOX SMART PIX</h1>
+
+    <div class="grid">
+    `;
+
+    for(const porta in produtos){
+
+        const produto = produtos[porta];
+
+        const url = `${config.baseUrl}/pagar/${porta}`;
+
+        const qr = await QRCode.toDataURL(url);
+
+        html += `
+        <div class="card">
+
+            <h2>Porta ${porta}</h2>
+
+            <h3>${produto.nome}</h3>
+
+            <h2>R$ ${produto.valor.toFixed(2)}</h2>
+
+            <img src="${qr}">
+
+            <br><br>
+
+            ${url}
+
+        </div>
+        `;
+    }
+
+    html += `
+    </div>
+    </body>
+    </html>
+    `;
+
+    res.send(html);
+
+});
 app.listen(config.port, () => {
   console.log("VENDIBOX SMART PIX 2.0 iniciado");
 });
