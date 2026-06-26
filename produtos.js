@@ -29,7 +29,7 @@ const produtos = {
   27: { porta: 27, nome: "Produto Porta 27", valor: 5.00 },
   28: { porta: 28, nome: "Produto Porta 28", valor: 5.00 },
   29: { porta: 29, nome: "Produto Porta 29", valor: 5.00 },
-  30: { porta: 30, nome: "Produto Porta 30", valor: 5.00 }
+  30: { porta: 30, nome: "caixa de bom bom garoto", valor: 15.00 }
 };
 
 module.exports = produtos;
