@@ -1,13 +1,13 @@
 const produtos = {
-  1: { porta: 1, nome: "Água Mineral", valor: 5.00 },
-  2: { porta: 2, nome: "Refrigerante", valor: 7.00 },
+  1: { porta: 1, nome: "Salgadinho", valor: 6.80 },
+  2: { porta: 2, nome: "amendoin crocante", valor: 7.00 },
   3: { porta: 3, nome: "Chocolate", valor: 5.00 },
   4: { porta: 4, nome: "Biscoito", valor: 4.00 },
   5: { porta: 5, nome: "Snack", valor: 6.00 },
   6: { porta: 6, nome: "Castanha-do-Brasil", valor: 8.00 },
-  7: { porta: 7, nome: "Energético", valor: 10.00 },
-  8: { porta: 8, nome: "Suco", valor: 6.00 },
-  9: { porta: 9, nome: "Água com Gás", valor: 5.00 },
+  7: { porta: 7, nome: "Batata", valor: 15.00 },
+  8: { porta: 8, nome: "amendoin,batata", valor: 6.00 },
+  9: { porta: 9, nome: "Lembranças da regiao", valor: 35.00 },
   10: { porta: 10, nome: "Produto Regional", valor: 8.00 }
 };
 
