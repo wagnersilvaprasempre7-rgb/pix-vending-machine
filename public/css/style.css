@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #050b14;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 30px;
+  text-align: center;
+  background: linear-gradient(90deg, #00111f, #003b5c);
+  border-bottom: 2px solid #00d9ff;
+}
+
+header h1 {
+  color: #00d9ff;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+header p {
+  color: #b8eaff;
+  margin-top: 8px;
+}
+
+main {
+  padding: 25px;
+}
+
+.status {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #0b1624;
+  border: 1px solid #00d9ff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.25);
+}
+
+.card h2 {
+  color: #00d9ff;
+  margin-bottom: 10px;
+}
+
+.online {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.titulo {
+  margin-bottom: 20px;
+  color: #00d9ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.porta {
+  background: #091827;
+  border: 1px solid #00d9ff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 0 12px rgba(0, 217, 255, 0.2);
+}
+
+.porta h3 {
+  color: #00d9ff;
+  margin-bottom: 8px;
+}
+
+.porta p {
+  margin: 6px 0;
+  color: #d7f7ff;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #00d9ff;
+  color: #00111f;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00ffcc;
+}
