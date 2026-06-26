@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VENDIBOX SMART PIX</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>VENDIBOX SMART PIX</h1>
+    <p>Painel Administrativo da Máquina Inteligente</p>
+  </header>
+
+  <main>
+    <section class="status">
+      <div class="card">
+        <h2>Servidor</h2>
+        <p class="online">Online</p>
+      </div>
+
+      <div class="card">
+        <h2>Compartimentos</h2>
+        <p>30 portas</p>
+      </div>
+
+      <div class="card">
+        <h2>Sistema</h2>
+        <p>PIX + ESP32</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="titulo">Controle das Portas</h2>
+      <div id="portas" class="grid"></div>
+    </section>
+  </main>
+
+  <script src="/js/painel.js"></script>
+</body>
+</html>
