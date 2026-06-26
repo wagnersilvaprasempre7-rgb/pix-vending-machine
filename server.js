@@ -1,80 +1,90 @@
 const express = require("express");
+const cors = require("cors");
+
+const config = require("./config");
+const portas = require("./portas");
+const { criarPix } = require("./mercadopago");
+const { processarWebhook } = require("./webhook");
+const { consultarESP32 } = require("./esp32");
+
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
-const portasLiberadas = {};
-
 app.get("/", (req, res) => {
-  res.send("Servidor da VENDIBOX funcionando!");
+  res.send("Servidor VENDIBOX SMART PIX 2.0 funcionando!");
 });
 
-// Webhook do Mercado Pago
-app.post("/webhook-pix", (req, res) => {
-  console.log("Webhook recebido:", req.body);
-
-  /*
-    Por enquanto, para teste:
-    Se chegar qualquer webhook, libera a porta informada na URL.
-    Exemplo:
-    /webhook-pix?porta=1
-  */
-
-  const porta = req.query.porta || "1";
-
-  portasLiberadas[porta] = true;
-
-  console.log(`Porta ${porta} liberada`);
-
-  res.status(200).send("PIX recebido");
+app.get("/portas", (req, res) => {
+  res.json(portas);
 });
 
-// ESP32 consulta se tem porta para abrir
-app.get("/esp32", (req, res) => {
-  const token = req.query.token;
-  const porta = req.query.porta;
+app.post("/pix", async (req, res) => {
+  try {
+    const { porta, produto, valor } = req.body;
 
-  if (token !== process.env.ESP32_TOKEN) {
-    return res.status(403).send("Token inválido");
-  }
+    if (!porta || !produto || !valor) {
+      return res.status(400).json({
+        erro: "Informe porta, produto e valor"
+      });
+    }
 
-  if (!porta) {
-    return res.status(400).json({
-      erro: "Informe a porta"
+    if (!portas[porta]) {
+      return res.status(404).json({
+        erro: "Porta inexistente"
+      });
+    }
+
+    portas[porta].produto = {
+      nome: produto,
+      preco: Number(valor),
+      estoque: 1
+    };
+
+    const pix = await criarPix({
+      porta,
+      produto,
+      valor
+    });
+
+    res.json({
+      sucesso: true,
+      mensagem: "PIX criado com sucesso",
+      pix
+    });
+
+  } catch (error) {
+    console.error("Erro ao criar PIX:", error);
+
+    res.status(500).json({
+      erro: "Erro ao criar PIX",
+      detalhes: error.message
     });
   }
-
-  if (portasLiberadas[porta]) {
-    portasLiberadas[porta] = false;
-
-    return res.json({
-      abrir: true,
-      porta: porta
-    });
-  }
-
-  res.json({
-    abrir: false,
-    porta: porta
-  });
 });
 
-// Painel simples para teste manual
+app.post("/webhook-pix", processarWebhook);
+
+app.get("/esp32", consultarESP32);
+
 app.get("/liberar/:porta", (req, res) => {
   const token = req.query.token;
   const porta = req.params.porta;
 
-  if (token !== process.env.ESP32_TOKEN) {
+  if (token !== config.esp32Token) {
     return res.status(403).send("Token inválido");
   }
 
-  portasLiberadas[porta] = true;
+  if (!portas[porta]) {
+    return res.status(404).send("Porta inexistente");
+  }
+
+  portas[porta].aberta = true;
 
   res.send(`Porta ${porta} liberada manualmente`);
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log("Servidor VENDIBOX iniciado");
+app.listen(config.port, () => {
+  console.log(`Servidor VENDIBOX iniciado na porta ${config.port}`);
 });
