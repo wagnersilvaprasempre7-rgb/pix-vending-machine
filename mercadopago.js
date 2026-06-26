@@ -12,10 +12,11 @@ async function criarPix({ porta, produto, valor }) {
     transaction_amount: Number(valor),
     description: `VENDIBOX - Porta ${porta} - ${produto}`,
     payment_method_id: "pix",
+    notification_url: `${config.baseUrl}/webhook-pix`,
+    external_reference: `PORTA_${porta}`,
     payer: {
       email: `cliente.porta${porta}@vendibox.com`
-    },
-    external_reference: `PORTA_${porta}`
+    }
   };
 
   const response = await payment.create({ body });
@@ -31,6 +32,11 @@ async function criarPix({ porta, produto, valor }) {
   };
 }
 
+async function consultarPagamento(id) {
+  return await payment.get({ id });
+}
+
 module.exports = {
-  criarPix
+  criarPix,
+  consultarPagamento
 };
