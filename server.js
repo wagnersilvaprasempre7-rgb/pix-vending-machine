@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-
+const QRCode = require("qrcode");
 const config = require("./config");
 const portas = require("./portas");
 const produtos = require("./produtos");
