@@ -1,15 +1,15 @@
+
 const produtos = {
   1: { porta: 1, nome: "Salgadinho", valor: 10.00 },
   2: { porta: 2, nome: "Amendoim Crocante", valor: 7.00 },
   3: { porta: 3, nome: "Chocolate", valor: 5.00 },
   4: { porta: 4, nome: "Biscoito", valor: 4.00 },
-  5: { porta: 5, nome: "Snack", valor: 6.00 },
+  5: { porta: 5, nome: "Lanche", valor: 6.00 },
   6: { porta: 6, nome: "Castanha-do-Brasil", valor: 8.00 },
   7: { porta: 7, nome: "Batata", valor: 15.00 },
   8: { porta: 8, nome: "Amendoim Batata", valor: 6.00 },
   9: { porta: 9, nome: "Lembranças da Região", valor: 35.00 },
   10: { porta: 10, nome: "Produto Regional", valor: 8.00 },
-
   11: { porta: 11, nome: "Produto Porta 11", valor: 5.00 },
   12: { porta: 12, nome: "Produto Porta 12", valor: 5.00 },
   13: { porta: 13, nome: "Produto Porta 13", valor: 5.00 },
@@ -29,7 +29,8 @@ const produtos = {
   27: { porta: 27, nome: "Produto Porta 27", valor: 5.00 },
   28: { porta: 28, nome: "Produto Porta 28", valor: 5.00 },
   29: { porta: 29, nome: "Produto Porta 29", valor: 5.00 },
-  30: { porta: 30, nome: "caixa de bom bom garoto", valor: 15.00 }
+  30: { porta: 30, nome: "Produto Porta 30", valor: 5.00 }
 };
 
 module.exports = produtos;
+
