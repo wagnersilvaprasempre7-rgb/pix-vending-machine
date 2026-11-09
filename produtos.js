@@ -1,6 +1,6 @@
 
 const produtos = {
-  1: { porta: 1, nome: "Salgadinho", valor: 10.00 },
+  1: { porta: 1, nome: "Salgadinho", valor: 0.50 },
   2: { porta: 2, nome: "Amendoim Crocante", valor: 7.00 },
   3: { porta: 3, nome: "Chocolate", valor: 5.00 },
   4: { porta: 4, nome: "Biscoito", valor: 4.00 },
